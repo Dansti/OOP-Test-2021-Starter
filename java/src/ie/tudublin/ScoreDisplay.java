@@ -37,6 +37,7 @@ public class ScoreDisplay extends PApplet
 
 	public void drawNotes()
 	{
+		//Useful variable for counting current letters and ignoring numbers
 		int j=0;
 		fill(0);
 		textSize(40);
@@ -49,6 +50,7 @@ public class ScoreDisplay extends PApplet
 			if(Character.isLetter(check))
 			{
 				j++;
+				//Quick way to get the mouse to display things in red
 				if(mouseX>width/21+width/21*j && mouseY>height-height/8-10*j)
 				{
 					fill(255,0,0);
@@ -63,6 +65,7 @@ public class ScoreDisplay extends PApplet
 			}
 			else
 			{
+				//Prints the thing for Crotchets
 				line(width/21+width/21*j+10,height-height/8-10*j-60,width/21+width/21*j+20,(height-height/8-10*j-60)+30);
 			}
 		}
@@ -75,10 +78,13 @@ public class ScoreDisplay extends PApplet
 		for(int i=0;i<score.length();i++)
 		{
 			char check = score.charAt(i);
+			//Checks if first string member is a letter
 			if(Character.isLetter(check))
 			{
+				//Prevents you going outside the array
 				if(score.length()-1>i)
-				{
+				{	
+					//Checks if next character is a digit
 					if(Character.isDigit(score.charAt(i+1)))
 					{
 						duration = score.charAt(i+1)-'0';
@@ -112,6 +118,7 @@ public class ScoreDisplay extends PApplet
 
 		public String toString()
 		{
+			//Simple way to print if it's a quaver or crotchet
 			if(duration == 1)
 			{	
 				qc = "Quaver";
