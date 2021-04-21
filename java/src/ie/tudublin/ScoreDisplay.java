@@ -60,7 +60,7 @@ public class ScoreDisplay extends PApplet
 
 	public void printScores()
 	{
-		//notes.toString();
+		System.out.print(notes);
 	}
 
 	public class Note
@@ -72,8 +72,6 @@ public class ScoreDisplay extends PApplet
 		{
 			this.note = n;
 			this.duration = d;
-
-			System.out.print(note);
 		}
 
 		public String toString()
@@ -87,7 +85,7 @@ public class ScoreDisplay extends PApplet
 			{
 				qc = "Crotchet";
 			}
-			return note + duration + qc;
+			return "\n" + note + " " + duration + " " + qc + " " + "\n";
 		}
 
 	}
