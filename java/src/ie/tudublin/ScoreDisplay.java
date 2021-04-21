@@ -25,8 +25,19 @@ public class ScoreDisplay extends PApplet
 
 	public void draw()
 	{
-		int j=0;
 		background(255);
+
+		for(int i=0;i<5;i++)
+		{
+			line(width/12,height/2+50*i,width-width/12,height/2+50*i);
+		}
+		drawNotes();
+		
+	}
+
+	public void drawNotes()
+	{
+		int j=0;
 		fill(0);
 		textSize(40);
 		textAlign(RIGHT);
@@ -38,18 +49,14 @@ public class ScoreDisplay extends PApplet
 			{
 				j++;
 				text(check,width/12+50*j,height/2-100);
+				line(width-width/12-width/21*j+10,height/2+10*j,width-width/12-width/21*j+10,height/2+10*j-height/2+200);
+				ellipse(width-width/12-width/21*j,height/2+10*j,25,25);
+			}
+			else
+			{
+				line(width-width/12-width/21*j+10,height/2+10*j-height/2+200,width-width/12-width/21*j+30,(height/2+10*j-height/2+200)+20);
 			}
 		}
-
-		for(int i=0;i<5;i++)
-		{
-			line(width/12,height/2+50*i,width-width/12,height/2+50*i);
-		}
-		
-	}
-
-	public void drawNotes()
-	{
 	}
 
 	public void loadScore()
