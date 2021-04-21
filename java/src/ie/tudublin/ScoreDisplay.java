@@ -17,7 +17,7 @@ public class ScoreDisplay extends PApplet
 		size(1000, 500);
 	}
 
-	public void setUp() 
+	public void setup() 
 	{
 		loadScore();
 		printScores();
@@ -95,13 +95,14 @@ public class ScoreDisplay extends PApplet
 
 	public void printScores()
 	{
-		notes.toString();
+		System.out.print(notes.toString());
 	}
 
 	public class Note
 	{
 		private char note;
 		private int duration;
+		String qc;
 
 		public Note(char n, int d)
 		{
@@ -111,7 +112,6 @@ public class ScoreDisplay extends PApplet
 
 		public String toString()
 		{
-			String qc;
 			if(duration == 1)
 			{	
 				qc = "Quaver";
@@ -120,8 +120,8 @@ public class ScoreDisplay extends PApplet
 			{
 				qc = "Crotchet";
 			}
-			return note + duration + qc;
+			
+			return "\n" + note + " " + duration + " " + qc + "\n";
 		}
 	}
-
 }
