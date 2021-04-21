@@ -7,23 +7,20 @@ import processing.core.PApplet;
 
 public class ScoreDisplay extends PApplet
 {
-	String score = "DEFGABcd";
+	//String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
-	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
+	ArrayList <Note> notes;
 	
 	public void settings()
 	{
-		size(1000, 500);
-
-		// How to convert a character to a number
-		char c = '7'; // c holds the character 7 (55)
-		int i = c - '0'; // i holds the number 7 (55 - 48) 
-		println(i);
+		size(500, 500);
 	}
 
 	public void setup() 
 	{
-		
+		loadScore();
+		printScores();
 	}
 
 	public void draw()
@@ -32,7 +29,59 @@ public class ScoreDisplay extends PApplet
 		
 	}
 
-	void drawNotes()
+	public void drawNotes()
 	{
 	}
+
+	public void loadScore()
+	{
+		int duration=0;
+		notes = new ArrayList<>(score.length());
+		for(int i=0;i<score.length();i++)
+		{
+			char check = score.charAt(i);
+			if(Character.isLetter(check))
+			{
+				if(score.length()-1>i)
+				{
+					if(Character.isDigit(score.charAt(i+1)))
+					{
+						duration = score.charAt(i+1)-'0';
+					}
+					else
+					{
+						duration = 1;
+					}
+				}
+			}
+
+			notes.add(new Note(check,duration));
+		}
+	}
+
+	public void printScores()
+	{
+
+	}
+
+	public class Note
+	{
+		private char note;
+		private int duration;
+
+		public Note(char n, int d)
+		{
+			this.note = n;
+			this.duration = d;
+
+			System.out.print(duration);
+		}
+
+		public String toString()
+		{
+			return note + "\n" + duration + "\n";
+		}
+
+	}
+
 }
