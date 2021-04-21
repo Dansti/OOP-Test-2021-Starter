@@ -53,15 +53,14 @@ public class ScoreDisplay extends PApplet
 						duration = 1;
 					}
 				}
+				notes.add(new Note(check,duration));
 			}
-
-			notes.add(new Note(check,duration));
 		}
 	}
 
 	public void printScores()
 	{
-
+		//notes.toString();
 	}
 
 	public class Note
@@ -74,12 +73,21 @@ public class ScoreDisplay extends PApplet
 			this.note = n;
 			this.duration = d;
 
-			System.out.print(duration);
+			System.out.print(note);
 		}
 
 		public String toString()
 		{
-			return note + "\n" + duration + "\n";
+			String qc;
+			if(duration == 1)
+			{	
+				qc = "Quaver";
+			}
+			else
+			{
+				qc = "Crotchet";
+			}
+			return note + duration + qc;
 		}
 
 	}
