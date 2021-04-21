@@ -14,10 +14,10 @@ public class ScoreDisplay extends PApplet
 	
 	public void settings()
 	{
-		size(500, 500);
+		size(1000, 500);
 	}
 
-	public void setup() 
+	public void setUp() 
 	{
 		loadScore();
 		printScores();
@@ -25,7 +25,26 @@ public class ScoreDisplay extends PApplet
 
 	public void draw()
 	{
+		int j=0;
 		background(255);
+		fill(0);
+		textSize(40);
+		textAlign(RIGHT);
+
+		for(int i=0;i<score.length();i++)
+		{
+			char check = score.charAt(i);
+			if(Character.isLetter(check))
+			{
+				j++;
+				text(check,width/12+50*j,height/2-100);
+			}
+		}
+
+		for(int i=0;i<5;i++)
+		{
+			line(width/12,height/2+50*i,width-width/12,height/2+50*i);
+		}
 		
 	}
 
@@ -87,7 +106,6 @@ public class ScoreDisplay extends PApplet
 			}
 			return "\n" + note + " " + duration + " " + qc + " " + "\n";
 		}
-
 	}
 
 }
