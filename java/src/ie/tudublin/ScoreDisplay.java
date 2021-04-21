@@ -54,7 +54,8 @@ public class ScoreDisplay extends PApplet
 			}
 			else
 			{
-				line(width-width/12-width/21*j+10,height/2+10*j-height/2+200,width-width/12-width/21*j+30,(height/2+10*j-height/2+200)+20);
+				int testing =width-width/12-width/21*j+10;
+				line(testing,height/2+10*j-height/2+200,width-width/12-width/21*j+30,(height/2+10*j-height/2+200)+20);
 			}
 		}
 	}
